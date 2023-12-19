@@ -26,10 +26,19 @@ public class Algorithm {
 
     public void Calculate() {
         printCurrentTable();
-        this.calculatePenalitySupply();
-        this.calculatePenalityDemand();
-        ArrayList<Integer> path = this.choosePath();
-        this.updateTable(path.get(0), path.get(1));
+        while (this.table.size() != 1) {
+            this.calculatePenalitySupply();
+            this.calculatePenalityDemand();
+            ArrayList<Integer> path = this.choosePath();
+            this.updateTable(path.get(0), path.get(1));
+        }
+
+        ArrayList<Double> lastLine = this.table.get(0);
+        for(int count = 0; count < lastLine.size(); count++) {
+            this.response.add("(" + this.demand.get(count) + " units) " + this.originsList.get(0) + " -> " + this.destinationList.get(count));
+        }
+        printCurrentTable();
+
     }
 
     /* Algorithm implementations */
@@ -101,9 +110,7 @@ public class Algorithm {
         this.demand.set(cX, updatedDemand);
         this.supply.set(cY, updatedSupply);
 
-
         this.response.add("(" + quantityTransported + " units) " + this.originsList.get(cY) + " -> " + this.destinationList.get(cX));
-
 
         if (updatedDemand == 0) {
             this.removeColumnByIndex(cX);
@@ -114,7 +121,6 @@ public class Algorithm {
             this.removeLineByIndex(cY);
             this.originsList.remove(cY);
         }
-
 
     }
 

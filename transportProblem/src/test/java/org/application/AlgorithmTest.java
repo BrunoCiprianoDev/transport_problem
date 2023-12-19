@@ -104,7 +104,6 @@ public class AlgorithmTest {
         Algorithm algorithm = this.createInstance();
         algorithm.removeLineByIndex(1);
 
-
         assertEquals(Arrays.asList(
                 Arrays.asList(2D, 11D, 7D),
                 Arrays.asList(5D, 15D, 9D)), algorithm.getTable());

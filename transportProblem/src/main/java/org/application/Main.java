@@ -26,13 +26,6 @@ public class Main {
 
         algorithm.Calculate();
 
-
-        algorithm.Calculate();
-
-        algorithm.Calculate();
-
-        algorithm.printCurrentTable();
-
         algorithm.printResponses();
 
     }
