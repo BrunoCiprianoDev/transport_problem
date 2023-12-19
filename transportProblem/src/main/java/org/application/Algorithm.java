@@ -24,21 +24,35 @@ public class Algorithm {
         this.updateDestinationList();
     }
 
-    public void Calculate() {
+    /**
+     * Method that executes the entire logical sequence
+     * @param describe: true to print the table after each iteration */
+    public void Calculate(boolean describe) {
         printCurrentTable();
         while (this.table.size() != 1 && this.demand.size() != 1) {
             this.calculatePenalitySupply();
             this.calculatePenalityDemand();
             ArrayList<Integer> path = this.choosePath();
             this.updateTable(path.get(0), path.get(1));
+
+            if(describe) {
+                printCurrentTable();
+            }
         }
 
+        /**
+         * If the table has only 1 row, simply relate the source row to the value of the same index in the destination
+         * */
         if (this.table.size() == 1) {
             ArrayList<Double> lastLine = this.table.get(0);
             for (int count = 0; count < lastLine.size(); count++) {
                 this.response.add("(" + this.demand.get(count) + " units) " + this.originsList.get(0) + " -> " + this.destinationList.get(count));
             }
         }
+
+        /**
+         * If the table has only 1 column, simply relate the source row to the value of the same index in the origin
+         * */
         if (this.demand.size() == 1) {
             ArrayList<Double> lastColumn = this.getColumnByIndex(0);
             for (int count = 0; count < lastColumn.size(); count++) {
@@ -48,7 +62,11 @@ public class Algorithm {
 
     }
 
-    /* Algorithm implementations */
+    /* -------------------------------------- Algorithm implementations --------------------------------------------- */
+
+    /**
+     * Add the penalties for each line (Supply)
+     * */
     public void calculatePenalitySupply() {
         this.penalitySupply = new ArrayList<>();
         for (int count = 0; count < this.table.size(); count++) {
@@ -58,6 +76,9 @@ public class Algorithm {
         }
     }
 
+    /**
+     * Add the penalties for each column (Demand)
+     * */
     public void calculatePenalityDemand() {
         this.penalityDemand = new ArrayList<>();
         for (int countColumns = 0; countColumns < table.get(0).size(); countColumns++) {
@@ -68,13 +89,19 @@ public class Algorithm {
         }
     }
 
+    /**
+     * Updates the list of subtitles for origins (O)
+     * */
     public void updateOriginsList() {
         this.originsList = new ArrayList<>();
         for (int count = 0; count < this.supply.size(); count++) {
-            this.originsList.add("S" + (count + 1));
+            this.originsList.add("O" + (count + 1));
         }
     }
 
+    /**
+     * Updates the list of subtitles for destinations (D)
+     * */
     public void updateDestinationList() {
         this.destinationList = new ArrayList<>();
         for (int count = 0; count < this.demand.size(); count++) {
@@ -82,20 +109,29 @@ public class Algorithm {
         }
     }
 
+    /**
+     * Choose best path
+     * */
     public ArrayList<Integer> choosePath() {
         int cY = 0;
         int cX = 0;
-        Double higherSupplyPenalityValue = Collections.max(this.penalitySupply);
+        Double higherSupplyPenalityValue = Collections.max(this.penalitySupply); // Increased Supplier Penalty
         int indexHighestPenaltyOffer = this.penalitySupply.indexOf(higherSupplyPenalityValue);
 
-        Double higherDemandPenalityValue = Collections.max(this.penalityDemand);
+        Double higherDemandPenalityValue = Collections.max(this.penalityDemand); // Increased Demand Penality
         int indexHighestPenaltyDemand = this.penalityDemand.indexOf(higherDemandPenalityValue);
 
         if (higherSupplyPenalityValue > higherDemandPenalityValue) {
+            /**
+             * If the supplier penalty is greater, it must obtain the X coordinate of the lowest cost
+             * */
             cY = indexHighestPenaltyOffer;
             Double min = Collections.min(table.get(cY));
             cX = this.table.get(cY).indexOf(min);
         } else {
+            /**
+             * If the supplier penalty is greater, it must obtain the Y coordinate of the lowest cost
+             * */
             cX = indexHighestPenaltyDemand;
             ArrayList<Double> column = this.getColumnByIndex(cX);
             Double min = Collections.min(column);
@@ -104,6 +140,11 @@ public class Algorithm {
         return new ArrayList<>(Arrays.asList(cX, cY));
     }
 
+    /**
+     * Removes a column from the table by index
+     * @param cX: x coordinate of the path element
+     * @param cY: Y coordinate of the path element
+     */
     public void updateTable(Integer cX, Integer cY) {
 
         Double demandLocal = this.demand.get(cX);
@@ -132,7 +173,8 @@ public class Algorithm {
     }
 
     /**
-     * Atualiza a lista de destinos e remove a coluna que não há mais demanda
+     * Removes a column from the table by index
+     * @param columnIndex: index of the line that will be deleted
      */
     public void removeColumnByIndex(Integer columnIndex) {
         Double demandElementRemove = this.demand.get(columnIndex);
@@ -150,7 +192,8 @@ public class Algorithm {
     }
 
     /**
-     * Atualiza a lista de origens e remove a linha que não há mais fabricação
+     * Removes a row from the table by index
+     * @param lineIndex: index of the line that will be returned
      */
     public void removeLineByIndex(Integer lineIndex) {
         Double elementSupplyRemove = this.supply.get(lineIndex);
@@ -166,7 +209,6 @@ public class Algorithm {
 
     /**
      * Returns the smallest value in the list
-     *
      * @param list It is the list or column of the table
      * @return The smallest value in the list.
      */
@@ -176,7 +218,6 @@ public class Algorithm {
 
     /**
      * Returns the second smallest value in the list
-     *
      * @param list It is the list or column of the table
      * @return The second smallest value in the list
      */
@@ -187,7 +228,7 @@ public class Algorithm {
         return Collections.min(listCopy);
     }
 
-    /* Access methods only */
+    /* ---------------------------------------- Access methods only ------------------------------------------------- */
     public ArrayList<Double> getColumnByIndex(Integer columnIndex) {
         ArrayList<Double> column = new ArrayList<>();
         for (int count = 0; count < this.table.size(); count++) {
@@ -255,9 +296,8 @@ public class Algorithm {
             print = print.concat(this.destinationList.get(countX) + " | ");
         }
         System.out.println(print);
+        System.out.println("\n -------------------------------------------------------------------------- \n");
 
-//        System.out.println("Penalidades oferta:"+this.penalitySupply);
-//        System.out.println("Penalidades demanda:"+this.penalityDemand);
     }
 
     public void printResponses() {

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cfed51b-222b-49ee-a884-6e28f8af13b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/application/SolverApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/application/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/application/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/application/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/application/SolverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/application/SolverApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,31 +35,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.calculatePenalityDemand.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.calculatePenalitySupplyTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.choosePathTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.getColumnByIndexTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.getFirstBetterTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.getLineByIndexTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.getSecondBetterTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.updateDestinationListTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.updateOriginTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AlgorithmTest.updateOriginsListTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/anon/Documentos/Repositorios-git/transport_problem/transportProblem/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.SolverApplication.executor": "Run",
+    "JUnit.AlgorithmTest.calculatePenalityDemand.executor": "Run",
+    "JUnit.AlgorithmTest.calculatePenalitySupplyTest.executor": "Run",
+    "JUnit.AlgorithmTest.choosePathTest.executor": "Run",
+    "JUnit.AlgorithmTest.executor": "Run",
+    "JUnit.AlgorithmTest.getColumnByIndexTest.executor": "Run",
+    "JUnit.AlgorithmTest.getFirstBetterTest.executor": "Run",
+    "JUnit.AlgorithmTest.getLineByIndexTest.executor": "Run",
+    "JUnit.AlgorithmTest.getSecondBetterTest.executor": "Run",
+    "JUnit.AlgorithmTest.updateDestinationListTest.executor": "Run",
+    "JUnit.AlgorithmTest.updateOriginTest.executor": "Run",
+    "JUnit.AlgorithmTest.updateOriginsListTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/home/anon/Documentos/Repositorios-git/transport_problem/transportProblem/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
-  <component name="RunManager" selected="Application.SolverApplication">
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.application.Main" />
       <module name="transportProblem" />
@@ -134,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SolverApplication" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SolverApplication" />
         <item itemvalue="JUnit.AlgorithmTest.removeColumnByIndexTest" />
         <item itemvalue="JUnit.AlgorithmTest" />
         <item itemvalue="JUnit.AlgorithmTest.choosePathTest" />
