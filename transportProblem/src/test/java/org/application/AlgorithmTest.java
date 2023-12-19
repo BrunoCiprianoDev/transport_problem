@@ -14,6 +14,7 @@ public class AlgorithmTest {
         Algorithm algorithm = this.createInstance();
         algorithm.calculatePenalitySupply();
         ArrayList<Double> sut = algorithm.getPenalitySupply();
+
         assertEquals(Arrays.asList(1D, 1D, 3D), sut);
 
     }
@@ -23,6 +24,7 @@ public class AlgorithmTest {
         Algorithm algorithm = this.createInstance();
         algorithm.calculatePenalityDemand();
         ArrayList<Double> sut = algorithm.getPenalityDemand();
+
         assertEquals(Arrays.asList(1D, 3D, 5D, 6D), sut);
     }
 
@@ -31,6 +33,7 @@ public class AlgorithmTest {
     public void updateOriginsListTest() {
         Algorithm algorithm = this.createInstance();
         ArrayList<String> sut = algorithm.getOriginsList();
+
         assertEquals(Arrays.asList("S1", "S2", "S3"), sut);
     }
 
@@ -38,16 +41,12 @@ public class AlgorithmTest {
     public void updateDestinationListTest() {
         Algorithm algorithm = this.createInstance();
         ArrayList<String> sut = algorithm.getDestinationList();
+
         assertEquals(Arrays.asList("D1", "D2", "D3", "D4"), sut);
     }
 
     @Test
-    public void findPathWithHighestDemandPenaltyTest() {
-
-    }
-
-    @Test
-    public void findPathWithHighestSupplyPenaltyTest() {
+    public void chosePathTest() {
         Algorithm algorithm = this.createInstance();
         algorithm.calculatePenalityDemand();
         algorithm.calculatePenalitySupply();
@@ -77,12 +76,39 @@ public class AlgorithmTest {
         assertEquals(Arrays.asList(1D, 2D, 3D), list);
     }
 
+
     @Test
     public void getSecondBetterTest() {
         ArrayList<Double> list = new ArrayList<>(Arrays.asList(2D, 3D, 11D, 7D));
         Double sut = Algorithm.getSecondBetter(list);
         assertEquals(3D, sut);
         assertEquals( Arrays.asList(2D, 3D, 11D, 7D), list);
+    }
+
+    @Test
+    public void removeColumnByIndexTest() {
+        Algorithm algorithm = this.createInstance();
+        algorithm.removeColumnByIndex(1);
+
+
+        assertEquals(Arrays.asList(
+                Arrays.asList(2D, 11D, 7D),
+                Arrays.asList(1D, 6D, 1D),
+                Arrays.asList(5D, 15D, 9D)), algorithm.getTable());
+
+    }
+
+
+    @Test
+    public void removeLineByIndexTest() {
+        Algorithm algorithm = this.createInstance();
+        algorithm.removeLineByIndex(1);
+
+
+        assertEquals(Arrays.asList(
+                Arrays.asList(2D, 11D, 7D),
+                Arrays.asList(5D, 15D, 9D)), algorithm.getTable());
+
     }
 
     private Algorithm createInstance() {
