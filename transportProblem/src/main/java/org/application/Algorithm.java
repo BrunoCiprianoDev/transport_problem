@@ -26,18 +26,32 @@ public class Algorithm {
 
     public void Calculate() {
         printCurrentTable();
-        while (this.table.size() != 1) {
+        while (this.table.size() != 1 && this.demand.size() != 1) {
             this.calculatePenalitySupply();
             this.calculatePenalityDemand();
             ArrayList<Integer> path = this.choosePath();
             this.updateTable(path.get(0), path.get(1));
         }
 
-        ArrayList<Double> lastLine = this.table.get(0);
-        for(int count = 0; count < lastLine.size(); count++) {
-            this.response.add("(" + this.demand.get(count) + " units) " + this.originsList.get(0) + " -> " + this.destinationList.get(count));
+        if (this.table.size() == 1) {
+            ArrayList<Double> lastLine = this.table.get(0);
+            for (int count = 0; count < lastLine.size(); count++) {
+                this.response.add("(" + this.demand.get(count) + " units) " + this.originsList.get(0) + " -> " + this.destinationList.get(count));
+            }
         }
-        printCurrentTable();
+        if (this.demand.size() == 1) {
+            ArrayList<Double> lastColumn = this.getColumnByIndex(0);
+            for (int count = 0; count < lastColumn.size(); count++) {
+                this.response.add("(" + this.supply.get(count) + " units) " + this.originsList.get(count) + " -> " + this.destinationList.get(0));
+            }
+        }
+
+//        printCurrentTable();
+//        this.calculatePenalitySupply();
+//        this.calculatePenalityDemand();
+//        ArrayList<Integer> path = this.choosePath();
+//        this.updateTable(path.get(0), path.get(1));
+
 
     }
 
