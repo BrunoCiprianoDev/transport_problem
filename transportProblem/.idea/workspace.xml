@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cfed51b-222b-49ee-a884-6e28f8af13b7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/application/SolverApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/application/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/application/Algorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/application/Main.java" afterDir="false" />
@@ -57,9 +58,22 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.SolverApplication">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.application.Main" />
+      <module name="transportProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolverApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.application.SolverApplication" />
       <module name="transportProblem" />
       <extension name="coverage">
         <pattern>
@@ -118,29 +132,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AlgorithmTest.updateOriginsListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="transportProblem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.application" />
-      <option name="MAIN_CLASS_NAME" value="org.application.AlgorithmTest" />
-      <option name="METHOD_NAME" value="updateOriginsListTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SolverApplication" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AlgorithmTest.removeColumnByIndexTest" />
         <item itemvalue="JUnit.AlgorithmTest" />
         <item itemvalue="JUnit.AlgorithmTest.choosePathTest" />
-        <item itemvalue="JUnit.AlgorithmTest.updateOriginsListTest" />
       </list>
     </recent_temporary>
   </component>

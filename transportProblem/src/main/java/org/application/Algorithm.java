@@ -46,13 +46,6 @@ public class Algorithm {
             }
         }
 
-//        printCurrentTable();
-//        this.calculatePenalitySupply();
-//        this.calculatePenalityDemand();
-//        ArrayList<Integer> path = this.choosePath();
-//        this.updateTable(path.get(0), path.get(1));
-
-
     }
 
     /* Algorithm implementations */
